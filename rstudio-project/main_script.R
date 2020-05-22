@@ -1,7 +1,7 @@
 library(caret)
 library(Boruta)
 
-remove(list=ls())
+# remove(list=ls())
 source("preprocessing_data.R")
 source("preprocessing_class.R")
 
@@ -12,3 +12,9 @@ all_data_and_classes <-cbind(all_data, all_classes)
 trainIndex = createDataPartition(all_data_and_classes$Class, p=.8, list=FALSE, times=1)
 train_data_and_classes <- all_data_and_classes[trainIndex,]
 validate_data_and_classes <- all_data_and_classes[-trainIndex,]
+
+BorutaOnTraining250 <- Boruta(Class~.,data=train_data_and_classes, maxRuns=250, doTrace=2)
+
+write.csv(getSelectedAttributes(BorutaOnTraining250), file = "boruta_250_important.csv")
+write.csv(getSelectedAttributes(BorutaOnTraining250, withTentative = TRUE), file = "boruta_250_important_tentative.csv")
+    
