@@ -5,6 +5,8 @@ load_and_preprocess_classes <-function(){
   all_classes = rbind(training_class,test_class)
   all_classes<-data.frame(all_classes)
   
-  reduced <- subset(all_classes, V1 < 7)
+  colnames(all_classes) <- c("Class")
+  
+  reduced <- subset(all_classes, Class < 7)
   return(reduced)
 }
