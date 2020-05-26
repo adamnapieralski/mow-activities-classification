@@ -2,6 +2,7 @@ library(caret)
 library(Boruta)
 library(e1071)
 library(pROC)
+library(rpart)
 
 remove(list=ls())
 source("preprocessing_data.R")
@@ -39,4 +40,5 @@ train_data_and_classes <- cbind(train_data, train_classes)
 source("svm_classification.R")
 svm_classification(train_data_and_classes, validate_data_and_classes)
 
-
+source("tree_classification.R")
+tree_classification(train_data_and_classes, validate_data_and_classes)
