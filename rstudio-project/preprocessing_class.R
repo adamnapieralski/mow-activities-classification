@@ -1,4 +1,4 @@
-load_and_preprocess_classes <-function(){
+load_and_preprocess_classes <-function(withAllClasses){
   remove(list=ls())
   training_class <- read.table("../../HAPT Data Set/Train/y_train.txt", header = FALSE, sep = " ")
   test_class <- read.table("../../HAPT Data Set/Test/y_test.txt", header = FALSE, sep = " ")
@@ -6,7 +6,11 @@ load_and_preprocess_classes <-function(){
   all_classes<-data.frame(all_classes)
   
   colnames(all_classes) <- c("Class")
-  
-  reduced <- subset(all_classes, Class < 7)
+  if(isTRUE(withAllClasses)){
+    reduced<-all_classes
+  }else{
+    
+    reduced <- subset(all_classes, Class < 7)
+  }
   return(reduced)
 }
