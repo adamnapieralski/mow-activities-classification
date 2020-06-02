@@ -38,7 +38,7 @@ validate_data <- subset(validate_data, select = c(important_attributes[,2]))
 train_data_and_classes <- cbind(train_data, train_classes)
 
 source("svm_classification.R")
-svm_classification(train_data_and_classes, validate_data_and_classes)
+svm_data_all_classes <- svm_classification(train_data_and_classes, validate_data_and_classes)
 
 source("tree_classification.R")
-tree_classification(train_data_and_classes, validate_data_and_classes)
+tree_data_all_classes <- tree_classification(train_data_and_classes, validate_data_and_classes)
