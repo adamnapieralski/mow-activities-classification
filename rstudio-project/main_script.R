@@ -1,5 +1,8 @@
 library(caret)
 library(Boruta)
+library(e1071)
+library(pROC)
+library(rpart)
 
 remove(list=ls())
 source("preprocessing_data.R")
@@ -18,8 +21,10 @@ validate_data_and_classes <- all_data_and_classes[-train_index,]
 
 train_data <- all_data[train_index,]
 validate_data <- all_data[-train_index,]
-train_classes <- all_classes[trainIndex,]
-validate_classes <- all_classes[-train_index,]
+train_classes <- data.frame(all_classes[train_index,])
+validate_classes <- data.frame(all_classes[-train_index,])
+colnames(train_classes) <- c("Class")
+colnames(validate_classes) <- c("Class")
 
 
 # long 7h run...
@@ -29,3 +34,11 @@ validate_classes <- all_classes[-train_index,]
 important_attributes <- read.csv("boruta_out/boruta_250_important_tentative.csv")
 # drop not important attributes
 train_data <- subset(train_data, select = c(important_attributes[,2]))
+validate_data <- subset(validate_data, select = c(important_attributes[,2]))
+train_data_and_classes <- cbind(train_data, train_classes)
+
+source("svm_classification.R")
+svm_data_all_classes <- svm_classification(train_data_and_classes, validate_data_and_classes)
+
+source("tree_classification.R")
+tree_data_all_classes <- tree_classification(train_data_and_classes, validate_data_and_classes)
