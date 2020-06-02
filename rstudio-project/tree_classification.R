@@ -33,13 +33,14 @@ tree_classification <-function(train_data_and_classes, validate_data_and_classes
   validate_predict.probs <- predict(best_classifier, newdata=subset(validate_data_and_classes, , -c(Class)))
   validate_cm <- confusionMatrix(validate_predict.class, as.factor(validate_data_and_classes$Class))
   validate_mroc <- multiclass.roc(validate_data_and_classes$Class, validate_predict.probs)
-  
+
   #tree_data.preds.probs[[1]] <<- predict(tree_data.classifiers[[1]], subset(validate_data_and_classes, , -c(Class)))
   #tree_data.preds.class[[1]] <<- predict(tree_data.classifiers[[1]], subset(validate_data_and_classes, , -c(Class)), type="class")
   
   
   #tree_data.cm[[1]] <<- confusionMatrix(tree_data.preds.class[[1]], as.factor(validate_data_and_classes$Class))
   #tree_data.mroc[[1]] <<- multiclass.roc(validate_data_and_classes$Class, tree_data.preds.probs[[1]])
+
   tree_data <- list("cross"=list("classifiers"=tree_data.classifiers, "preds"=list("class"=tree_data.preds.class, "probs"=tree_data.preds.probs),
                                  "cm"=tree_data.cm, "err"=tree_data.err),
                     "validate"=list("classifier"=best_classifier, "preds"=list("class"=validate_predict.class, "probs"=validate_predict.probs),
