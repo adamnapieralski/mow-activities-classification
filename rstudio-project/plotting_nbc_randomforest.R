@@ -67,7 +67,7 @@ plot(random_data_reduced[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[1]], col=colors
 lines(random_data_reduced[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[2]], col=colors[[2]])
 legend("bottomright",
        legend = c(paste("4/5 (AUC=", round(auc(random_data_reduced[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[1]]), 3), ")"),
-                  paste("4/5 (AUC=", round(auc(random_data_reduced[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[2]]), 3), ")")),
+                  paste("5/4 (AUC=", round(auc(random_data_reduced[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[2]]), 3), ")")),
        col = colors[1:2],
        pch = c(17,19),
        bty = "n",
@@ -82,7 +82,7 @@ plot(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[1]], col=colors[[1
 lines(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[2]], col=colors[[2]])
 legend("bottomright",
        legend = c(paste("4/5 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[1]]), 3), ")"),
-                  paste("4/5 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[2]]), 3), ")")),
+                  paste("5/4 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/5"]][[2]]), 3), ")")),
        col = colors[1:2],
        pch = c(17,19),
        bty = "n",
@@ -98,7 +98,7 @@ plot(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["9/11"]][[1]], col=colors[[
 lines(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["9/11"]][[2]], col=colors[[2]])
 legend("bottomright",
        legend = c(paste("9/11 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["9/11"]][[1]]), 3), ")"),
-                  paste("9/11 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["9/11"]][[2]]), 3), ")")),
+                  paste("11/9 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["9/11"]][[2]]), 3), ")")),
        col = colors[1:2],
        pch = c(17,19),
        bty = "n",
@@ -113,7 +113,7 @@ plot(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/11"]][[1]], col=colors[[
 lines(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/11"]][[2]], col=colors[[2]])
 legend("bottomright",
        legend = c(paste("4/11 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/11"]][[1]]), 3), ")"),
-                  paste("4/11 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/11"]][[2]]), 3), ")")),
+                  paste("11/4 (AUC=", round(auc(random_data_full[[1]][["mroc"]][[6]][["rocs"]][["4/11"]][[2]]), 3), ")")),
        col = colors[1:2],
        pch = c(17,19),
        bty = "n",
