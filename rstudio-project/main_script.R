@@ -60,13 +60,16 @@ naiveBayes_reduced_classification(train_all, validate_all)
 
 # RandomForest
 source("RandomForest_classification.R")
-RandomForest_classification(train_all,validate_all)
+random_forest_data <- RandomForest_classification(train_all,validate_all)
 
 # SVM
 source("svm_classification.R")
-svm_data_all_classes <- svm_classification(train_data_and_classes, validate_data_and_classes)
+svm_data_data <- svm_classification(train_data_and_classes, validate_data_and_classes)
 
 # Decision Trees
 source("tree_classification.R")
-tree_data_all_classes <- tree_classification(train_data_and_classes, validate_data_and_classes)
+tree_data_data <- tree_classification(train_data_and_classes, validate_data_and_classes)
 
+# Plotting rocs for report
+source("plotting_nbc_randomforest.R")
+source("plotting_trees_svm.R")
